@@ -19,7 +19,7 @@ people::people()
 {
 	persn = new string[20];
 }
-people::people(const int& person)
+people::people(const people& person)
 {
 
 }
