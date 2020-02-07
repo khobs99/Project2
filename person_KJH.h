@@ -8,9 +8,10 @@
 
 using namespace std;
 
-
+#include"people.h"
 class person
 {
+friend people;
 public:
 	person();    //Constructor
 	person(string first, string last);
