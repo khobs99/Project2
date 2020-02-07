@@ -2,7 +2,7 @@ class people
 {
 public:
 	people();
-	people(const int& person);
+	people(const people& source);
 	~people();
 	bool insert(const person& x);
 	void display(ostream&);
