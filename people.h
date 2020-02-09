@@ -4,14 +4,14 @@ public:
 	people();
 	people(const people& source);
 	~people();
-	bool insert(const person& x);
+	void insert(const person& x);
 	void display(ostream&);
-	bool find(const person& F);
-	bool remove(const person& j);
-	bool operator =(people i);
-	bool operator +(people l);
+	int find(const person& F);
+	bool remove(person& j);
+	void operator =(people& i);
+	people operator +(people l);
 private:
-	string *persn;
+	person *map;
 	int len;
 
 
