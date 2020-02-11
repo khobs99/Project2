@@ -1,17 +1,15 @@
+#include "Person.h"
 class people
 {
 public:
 	people();
 	people(const people& source);
 	~people();
-	void insert(const person& x);
-	void display(ostream&);
-	int find(const person& F);
-	bool remove(person& j);
-	void operator =(people& i);
-	people operator +(people l);
+	void insert(const person& n);
+	people& operator =(const people& i);
+	void display(ostream& out);
 private:
-	person *map;
+	person* map;
 	int len;
 
 
