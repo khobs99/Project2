@@ -35,6 +35,10 @@ people& people::operator= (const people &source)
 	{
 		return *this;
 	}
+	for(int i=0;i<len;i++)
+	{
+		map[i]=source.map[i];
+	}
 	len = source.len;
 	map = source.map;
 	return *this;
