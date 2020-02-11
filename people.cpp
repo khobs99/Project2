@@ -73,7 +73,7 @@ void people::display(ostream& out)
 for(int i=0;i<len;i++)
 {
 	sum+=map[i].age;
-	map.put(cout);
+	map.put(out);
 	out<<endl;
 }
 }
