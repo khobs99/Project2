@@ -1,94 +1,82 @@
 #ifndef Person_KJH
 #define Person_KJH
 
-#include<iostream>
-#include<cstdlib>
-#include<fstream>
-#include<string>
 #include<iomanip>
+#include<iostream>
+#include<string>
+#include<cstdlib>
 
 
 
-using namespace std;
 
-
-#include "People.h"
-#include "Person_KJH.h"
+#include"people.h"
+#include"Person.h"
+const int MAX = 20;
 
 people::people()
 {
-	map = new person[20];
+	map = new person[MAX];
 	len = 0;
-}
-people::people(const people& source)
-{
-	source = new person[20];
-	len = source.len;
-	*this = source;
 }
 people::~people()
 {
 	delete[] map;
 }
-void people::insert(const person& x)
+people::people(const people& source)
 {
-	int i, pos = 0;
-	if (len >= 20)
+	delete[] map;   
+	len = source.len;
+	map = new person[MAX];
+	for (int i = 0; i < MAX; i++)
+	{
+		map[i] = source.map[i];
+		len++;
+	}
+}
+void people::insert(const person& n)
+{
+	int pos = 0;
+	if (len >= MAX)
 	{
 		return;
 	}
-	while (pos < len && map[pos] < x)
+	while (pos < len&& map[pos]<n)
 	{
 		pos++;
 	}
-	for (i = len; i > pos; i--)
+	for (int i = len; i > pos; i--)
 	{
 		map[i - 1] = map[i];
-		map[pos] = x;
+		map[pos] = n;
 		len++;
+
 	}
+}
+people& people::operator= (const people& source)
+{
+	if (this == &source)
+	{
+		return *this;
+	}
+	delete[]map;
+	people tempmap;
+	for (int i = 0; i < len; i++)
+	{
+		tempmap.map[i] = source.map[i];
+	}
+	len = source.len;
+	return *this;
 
 }
 void people::display(ostream& out)
 {
 	out << map << endl;
 }
-int people::find(const person& f)
-{
-	for (int i = 0; i < len; i++)
-	{
-		if (map[i] == f)
-		{
-			return i;
-		}
-	}
-	return -1;
-}
-bool people::remove(person& j)
-{
-	delete map[j];
-}
-people people::operator + (people l)
-{
-	people r(*this);
-	for (int i = 0; i < len; i++)
-	{
-		if (l.find(map[i]) != -1)
-		{
-			r.insert(map[i]);
-		}
-	}
-	return r;
-}
-void people::operator =(people& i)
-{
-	person *tempmap;
-	tempmap = new person[20];
-	delete[] map;
-	map = tempmap;
-	i.map = tempmap;
-	len = i.len;
-	
-}
+
+
+
+
+
+
 
 #endif
