@@ -6,6 +6,7 @@ public:
 	people(const people& source);
 	~people();
 	void insert(const person& n);
+	void find(const person& x);
 	people& operator =(const people& i);
 	void display(ostream& out);
 private:
