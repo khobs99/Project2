@@ -70,7 +70,12 @@ people& people::operator= (const people& source)
 }
 void people::display(ostream& out)
 {
-	out << map << endl;
+for(int i=0;i<len;i++)
+{
+	sum+=map[i].age;
+	map.put(cout);
+	out<<endl;
+}
 }
 
 
