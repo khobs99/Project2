@@ -40,7 +40,6 @@ people& people::operator= (const people &source)
 		map[i]=source.map[i];
 	}
 	len = source.len;
-	map = source.map;
 	return *this;
 	
 }
