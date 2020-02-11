@@ -43,13 +43,13 @@ void people::insert(const person& n)
 	while (pos < len&& map[pos]<n)
 	{
 		pos++;
-	}
+	
 	for (int i = len; i > pos; i--)
 	{
-		map[i - 1] = map[i];
-		map[pos] = n;
-		len++;
+		map[i] = map[i-1];
 
+	}
+		len++;
 	}
 }
 people& people::operator= (const people& source)
