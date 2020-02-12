@@ -10,8 +10,9 @@
 
 
 #include"people.h"
-#include"Person.h"
+#include"Person_KJH.h"
 const int MAX = 20;
+using namespace std;
 
 people::people()
 {
@@ -24,7 +25,7 @@ people::~people()
 }
 people::people(const people& source)
 {
-	delete[] map;   
+	delete[] map;
 	len = source.len;
 	map = new person[MAX];
 	for (int i = 0; i < MAX; i++)
@@ -40,15 +41,15 @@ void people::insert(const person& n)
 	{
 		return;
 	}
-	while (pos < len&& map[pos]<n)
+	while (pos < len&& map[pos] < n)
 	{
 		pos++;
-	
-	for (int i = len; i > pos; i--)
-	{
-		map[i] = map[i-1];
 
-	}
+		for (int i = len; i > pos; i--)
+		{
+			map[i] = map[i - 1];
+
+		}
 		len++;
 	}
 }
@@ -70,12 +71,14 @@ people& people::operator= (const people& source)
 }
 void people::display(ostream& out)
 {
-for(int i=0;i<len;i++)
-{
-	sum+=map[i].age;
-	map.put(out);
-	out<<endl;
-}
+	int sum = 0;
+	for (int i = 0; i < len; i++)
+	{
+		person temp = *(map + i);
+		//sum += temp.get(age);
+		 temp.put(out);
+		out << endl;
+	}
 }
 
 
