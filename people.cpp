@@ -48,6 +48,7 @@ void people::insert(const person& n)
 		for (int i = len; i > pos; i--)
 		{
 			map[i] = map[i - 1];
+			map[pos]=n;
 
 		}
 		len++;
