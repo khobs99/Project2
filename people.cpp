@@ -98,7 +98,7 @@ people& people::operator= (const people& source)
 	return *this;
 
 }
-people people::operator+(people x)
+people people::operator+(const people& x)
 {
 	if ((len + x.len) > 20)
 	{
