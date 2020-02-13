@@ -100,19 +100,14 @@ people& people::operator= (const people& source)
 }
 people people::operator+(const people& x)
 {
-	if ((len + x.len) > 20)
+	person *new_map;
+	new_map=new person[20];
+	delete [] map;
+	for(iint i=0;i<x.len;i++)
 	{
-		cout << "List is full" << endl;
-		return;
+		new_map[i]=map[i];
 	}
-	else
-	{
-		for (int i = 0; i < MAX; i++)
-		{
-			*map = *(x.map + i);
-		}
-	}
-	return *this;
+	len=x.len;
 }
 void people::display(ostream& out)
 {
