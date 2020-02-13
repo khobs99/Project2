@@ -19,10 +19,6 @@ people::people()
 	map = new person[MAX];
 	len = 0;
 }
-people::~people()
-{
-	delete[] map;
-}
 people::people(const people& source)
 {
 	delete[] map;
@@ -34,6 +30,11 @@ people::people(const people& source)
 		len++;
 	}
 }
+people::~people()
+{
+	delete[] map;
+}
+
 void people::insert(const person& n)
 {
 	int pos = 0;
@@ -48,10 +49,38 @@ void people::insert(const person& n)
 		for (int i = len; i > pos; i--)
 		{
 			map[i] = map[i - 1];
-			map[pos]=n;
 
 		}
 		len++;
+	}
+}
+int people::find(const person& x)
+{
+	for (int i = 0; i < MAX; i++)
+	{
+		if (map[i] == x)
+		{
+			return i;
+		}
+		else
+		{
+			return;
+		}
+	}
+}
+void people::remove(const person& kill)
+{
+	for (int i = 0; i < MAX; i++)
+	{
+		if (map[i] == kill)
+		{
+			for (; i < MAX - 1; i++)
+			{
+				map[i] = map[i + 1];
+			}
+			delete[](map + i);
+			len--;
+		}
 	}
 }
 people& people::operator= (const people& source)
@@ -69,6 +98,22 @@ people& people::operator= (const people& source)
 	len = source.len;
 	return *this;
 
+}
+people people::operator+(people x)
+{
+	if ((len + x.len) > 20)
+	{
+		cout << "List is full" << endl;
+		return;
+	}
+	else
+	{
+		for (int i = 0; i < MAX; i++)
+		{
+			*map = *(x.map + i);
+		}
+	}
+	return *this;
 }
 void people::display(ostream& out)
 {
