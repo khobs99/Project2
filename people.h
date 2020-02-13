@@ -11,7 +11,7 @@ public:
 	int find(const person& x);
 	void remove(const person& kill);
 	people& operator =(const people& i);
-	people operator +(people x);
+	people operator +(const people& x);
 	void display(ostream& out);
 private:
 	person* map;
