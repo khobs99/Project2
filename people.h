@@ -1,4 +1,6 @@
-#include "Person.h"
+#include "Person_KJH.h"
+
+
 class people
 {
 public:
@@ -6,8 +8,10 @@ public:
 	people(const people& source);
 	~people();
 	void insert(const person& n);
-	void find(const person& x);
+	int find(const person& x);
+	void remove(const person& kill);
 	people& operator =(const people& i);
+	people operator +(people x);
 	void display(ostream& out);
 private:
 	person* map;
