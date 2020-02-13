@@ -1,5 +1,4 @@
-#ifndef Person_KJH
-#define Person_KJH
+
 
 #include<iomanip>
 #include<iostream>
@@ -10,7 +9,6 @@
 
 
 #include"people.h"
-#include"Person_KJH.h"
 const int MAX = 20;
 using namespace std;
 
@@ -134,4 +132,4 @@ void people::display(ostream& out)
 
 
 
-#endif
+
