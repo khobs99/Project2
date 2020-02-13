@@ -49,6 +49,7 @@ void people::insert(const person& n)
 			map[i] = map[i - 1];
 
 		}
+		map[pos]=n;
 		len++;
 	}
 }
