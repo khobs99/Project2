@@ -1,4 +1,4 @@
-
+//People.cpp File .   Kenneth Hobday .  Spring 2020 .  CSC231
 
 #include<iomanip>
 #include<iostream>
@@ -12,11 +12,14 @@
 const int MAX = 20;
 using namespace std;
 
+//postcondition:variables are initialized
 people::people()
 {
 	map = new person[MAX];
 	len = 0;
 }
+//Precondition:Variables have been initialized
+//Postcondtion: A copy has been made of the variables
 people::people(const people& source)
 {
 	delete[] map;
@@ -28,11 +31,13 @@ people::people(const people& source)
 		len++;
 	}
 }
+//Postcondition: The dynamic variable is deleted
 people::~people()
 {
 	delete[] map;
 }
-
+//Precondition:There is an array that has been declared and initialized
+//Postcondition: A new value has been inserted into the array and the length has been incremented
 void people::insert(const person& n)
 {
 	int pos = 0;
@@ -53,6 +58,8 @@ void people::insert(const person& n)
 		len++;
 	}
 }
+//Precondition:Dynamic array exists and is initialized
+//Post:Returns where the sought after value is
 int people::find(const person& x)
 {
 	for (int i = 0; i < MAX; i++)
@@ -67,6 +74,8 @@ int people::find(const person& x)
 		}
 	}
 }
+//Pre:Dynamic array exists and is initialized
+//Post:Sought after value has been removed from the array and length is decremented
 void people::remove(const person& kill)
 {
 	for (int i = 0; i < MAX; i++)
@@ -82,6 +91,7 @@ void people::remove(const person& kill)
 		}
 	}
 }
+//Post:Assignment operator is overloaded to work with the people class
 people& people::operator= (const people& source)
 {
 	if (this == &source)
@@ -98,6 +108,7 @@ people& people::operator= (const people& source)
 	return *this;
 
 }
+//Post:Two values of the array have been added together
 people people::operator+(const people& x)
 {
 	person *new_map;
@@ -109,6 +120,8 @@ people people::operator+(const people& x)
 	}
 	len=x.len;
 }
+//Pre: There are values in the array
+//Post:The values are displayed to the screen
 void people::display(ostream& out)
 {
 	int sum = 0;
