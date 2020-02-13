@@ -1,3 +1,6 @@
+//People Header . Kenneth Hobday .  Spring 2020 .  CSC231
+
+
 #include "Person_KJH.h"
 
 
